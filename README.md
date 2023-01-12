@@ -1,18 +1,18 @@
-<h1 align="center">javaScript.Programs</h1>
+<h1 align="center">Discord Bot</h1>
 <table>
   <tr>
     <td align="center" height="108" width="108">
         <img
-        src=""
+        src="https://www.svgrepo.com/show/353655/discord-icon.svg"
         width="48"
         height="48"
         />
-        <br /><strong>JavaScript</strong>
+        <br /><strong>Discord.js</strong>
      </td>
      <td align="center" height="108">
-        <p align="center">A simple Discord bot for my gaming server that mostly just talks trash and posts memes for now. Functionality will change regularly as I come up with ideas for it. 
+        <p align="left">A simple Discord bot for my gaming server that mostly just talks trash and posts memes.
         </p>
-        <p align="center">
+        <p align="left">
         <strong>WARNING! NSFW</strong> 
        </p>
      </td>
