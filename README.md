@@ -20,27 +20,26 @@
 
 ## Building and running on localhost
 
-First install dependencies:
+## install dependencies:
 ```sh
 npm install
 ```
-To create a production build:
+## create a production build:
 
 ```sh
 npm run build-prod
 ```
-To create a development build:
+## create a development build:
 ```sh
 npm run build-dev
 ```
-## Running
+## run
 ```sh
 node dist/bundle.js
 ```
-## Testing
+## test
 To run unit tests:
 
 ```sh
 npm test
 ```
-## Credits
