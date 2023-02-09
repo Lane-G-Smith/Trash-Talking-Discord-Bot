@@ -1,11 +1,11 @@
 {
-  "name": "d-bot",
+  "name": "discord-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "funny chatbot for game server",
   "main": "index.js",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Lane-G-Smith",
+  "license": "MIT",
   "scripts": {
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack --mode development",

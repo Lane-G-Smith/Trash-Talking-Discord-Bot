@@ -6,7 +6,7 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-(self["webpackChunkd_bot"] = self["webpackChunkd_bot"] || []).push([["_ed1b-_d17e"],{
+(self["webpackChunkdiscord_bot"] = self["webpackChunkdiscord_bot"] || []).push([["_ed1b-_d17e"],{
 
 /***/ "?ed1b":
 /*!**********************!*\
@@ -14,7 +14,7 @@
   \**********************/
 /***/ (() => {
 
-eval("/* (ignored) */\n\n//# sourceURL=webpack://d-bot/util_(ignored)?");
+eval("/* (ignored) */\n\n//# sourceURL=webpack://discord-bot/util_(ignored)?");
 
 /***/ }),
 
@@ -24,7 +24,7 @@ eval("/* (ignored) */\n\n//# sourceURL=webpack://d-bot/util_(ignored)?");
   \**********************/
 /***/ (() => {
 
-eval("/* (ignored) */\n\n//# sourceURL=webpack://d-bot/util_(ignored)?");
+eval("/* (ignored) */\n\n//# sourceURL=webpack://discord-bot/util_(ignored)?");
 
 /***/ })
 
