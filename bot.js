@@ -37,3 +37,11 @@ client.on("message", message => {
 });
 // client.login(process.env.TOKEN)
 client.login(process.env.TOKEN)
+
+
+
+// i can haz dad joke api
+// https://icanhazdadjoke.com/api
+
+// use giphy api to display a random meme
+// https://developers.giphy.com/docs/api/ 
