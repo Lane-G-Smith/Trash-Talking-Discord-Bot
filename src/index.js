@@ -1,8 +1,14 @@
+console.log("hello world!");
+
 // import bot token from .env file
 require('dotenv').config();
 
+// require a function from a module
+require ("makeTextResponse")
+
 // import discord.js module
 const { Client, GatewayIntentBits} = require('discord.js');
+const { default: makeTextResponse } = require('./burn-programmer');
 
 // configure permissions(intents)
 const client = new Client({intents: 

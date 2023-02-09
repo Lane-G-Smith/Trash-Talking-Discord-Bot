@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "keywords": [],
-  "author": "Lane-G-Smith",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "scripts": {
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack --mode development",
@@ -13,7 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "giphy-js-sdk-core": "^1.0.6"
+    "discord.js": "^14.7.1"
   },
   "devDependencies": {
     "file-loader": "^6.2.0",

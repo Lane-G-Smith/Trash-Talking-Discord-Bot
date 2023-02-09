@@ -11,3 +11,5 @@ const makeTextResponse = (text) => {
     };
   };
   const response = makeTextResponse('Hello there! How can I help you today?');
+
+  export default makeTextResponse
