@@ -1,14 +1,8 @@
-console.log("hello world!");
-
 // import bot token from .env file
 require('dotenv').config();
 
-// require a function from a module
-require ("makeTextResponse")
-
 // import discord.js module
 const { Client, GatewayIntentBits} = require('discord.js');
-const { default: makeTextResponse } = require('./burn-programmer');
 
 // configure permissions(intents)
 const client = new Client({intents: 
@@ -23,15 +17,16 @@ const client = new Client({intents:
     ],
 });
 
-// client.login
-client.login(process.env.TOKEN)
-
 // log in with token from .env file
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`)
 });
 
+// client.login
+client.login(process.env.TOKEN)
 // create key for speaking to bot
+
+// set bot trigger
 prefix = ('!');
 
 // text responses to specific words or phrases typed in Discord
