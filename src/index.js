@@ -1,8 +1,18 @@
 // import bot token from .env file
-require('dotenv').config();
+const TOKEN = require('dotenv').config();
+
+// import commands
+require("./commands/ping");
+
+// not sure
+const fs = require('node:fs');
+
+// I don't know
+const path = require('node:path');
+
 
 // import discord.js module
-const { Client, GatewayIntentBits} = require('discord.js');
+const { Client, Collection, Events, GatewayIntentBits} = require('discord.js');
 
 // configure permissions(intents)
 const client = new Client({intents: 
@@ -17,38 +27,65 @@ const client = new Client({intents:
     ],
 });
 
+// attach .commands to client instance to access in other files
+client.commands = new Collection();
+
 // log in with token from .env file
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`)
+    console.log(`Main page works! Logged in as ${client.user.tag}!`)
 });
 
 // client.login
 client.login(process.env.TOKEN)
 // create key for speaking to bot
 
-// set bot trigger
-prefix = ('!');
+// retrieve all event files in events folder
+const eventsPath = path.join(__dirname, 'events');
+const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
 
-// text responses to specific words or phrases typed in Discord
-client.on("message", message => {
-    if (message.content.startsWith(prefix + "1"))
-        { client.channels.cache.get(1048088123478908990).send('1');
-    }
-    if (message.content.startsWith(prefix + "2"))
-        { client.channels.cache.get(1048088123478908990).send('2');
-    }
-    if (message.content.startsWith(prefix + "3"))
-        { client.channels.cache.get(1048088123478908990).send('3');
-    }
+for (const file of eventFiles) {
+	const filePath = path.join(eventsPath, file);
+	const event = require(filePath);
+	if (event.once) {
+		client.once(event.name, (...args) => event.execute(...args));
+	} else {
+		client.on(event.name, (...args) => event.execute(...args));
+	}
+}
+
+
+client.on(Events.InteractionCreate, async interaction => {
+	if (!interaction.isChatInputCommand()) return;
+
+	const command = interaction.client.commands.get(interaction.commandName);
+
+	if (!command) {
+		console.error(`No command matching ${interaction.commandName} was found.`);
+		return;
+	}
+
+	try {
+		await command.execute(interaction);
+	} catch (error) {
+		console.error(`Error executing ${interaction.commandName}`);
+		console.error(error);
+	}
 });
 
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
 
-client.on('message', message => {
-  if (message.content === 'ping') {
-    message.reply('Pong!');
-  }
+
+
+
+
+
+
+
+client.on(Events.InteractionCreate, async interaction => {
+	if (!interaction.isChatInputCommand()) return;
+
+	if (interaction.commandName == 'ping') {
+		await interaction.reply('Pong!');
+		await interaction.followUp('Pong again!');
+	}
 });

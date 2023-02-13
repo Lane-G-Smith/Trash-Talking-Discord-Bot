@@ -6,6 +6,9 @@
   "keywords": [],
   "author": "Lane-G-Smith",
   "license": "MIT",
+  "guildId": "1047982916329820211",
+  "token": "",
+  "clientID": "1047980373419765831",
   "scripts": {
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack --mode development",
