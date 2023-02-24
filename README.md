@@ -16,7 +16,7 @@
  </table>
 
 
-# Dick-Bot
+# Jerry-Bot
 
 ## install dependencies:
 ```sh
