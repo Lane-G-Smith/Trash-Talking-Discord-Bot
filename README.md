@@ -9,7 +9,7 @@
         <br /><strong>Discord.js</strong>
     </td>
     <td align="center" height="108">
-      <p align="center">A discord bot that talks trash, insults people, and posts memes.
+      <p align="center">A discord bot that insults people and their moms, quotes geniuses like Trump and Kanye, and posts Chuck Norris jokes and memes.
       </p>
      </td>
    </tr>
