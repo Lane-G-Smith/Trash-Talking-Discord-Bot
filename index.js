@@ -3,6 +3,7 @@ const TOKEN = require('dotenv').config();
 
 // import discord.js module
 const {Client, GatewayIntentBits} = require('discord.js');
+const { json } = require('stream/consumers');
 
 // configure permissions(intents)
 const client = new Client({intents: 
@@ -51,7 +52,7 @@ async function momJoke() {
 
 // call Chuck Norris Joke api
 client.on('messageCreate', message => {
-	if (message.content.toLowerCase().includes('chuck')) {
+	if (message.content.toLowerCase().includes('-chuck')) {
 		chuckNorris()
 		.then(data => message.reply(data.value));
 	}
@@ -66,7 +67,7 @@ async function chuckNorris() {
 client.on('messageCreate', message => {
 	if (message.content.toLowerCase().includes('kanye')) {
 		kanye()
-		.then(data => message.reply(data.quote + "...............K a n y e  W e s t"));
+		.then(data => message.reply(data.quote + " ............... K a n y e  W e s t"));
 	}
 });
 async function kanye() {
@@ -77,9 +78,9 @@ async function kanye() {
 
 // call Trump quote api
 client.on('messageCreate', message => {
-	if (message.content.toLowerCase().includes('idiot')) {
+	if (message.content.toLowerCase().includes('donald')) {
 		trump()
-		.then(data => message.reply((data.value) + "............... D o n a l d  T r u m p"));
+		.then(data => message.reply((data.value) + " ............... D o n a l d  T r u m p"));
 	}
 });
 async function trump() {
@@ -92,7 +93,7 @@ async function trump() {
 client.on('messageCreate', message => {
 	if (message.content.toLowerCase().includes('useless')) {
 		useless()
-		.then(data => message.reply(data.text));
+		.then(data => message.reply((data.text) + (" ............... Y o u r ' e  W e l c o m e")));
 	}
 });
 async function useless() {
@@ -101,6 +102,38 @@ async function useless() {
 	return data;
 }
 
+// call Ron Swanson quote api
+client.on('messageCreate', message => {
+	if (message.content.toLowerCase().includes('ron')) {
+		ron()
+		.then(data => message.reply((data) + (" ............... R o n  S w a n s o n")));
+	}
+});
+async function ron() {
+	let response =  await fetch('http://ron-swanson-quotes.herokuapp.com/v2/quotes');
+	let data = await response.json()
+	return data;
+}
+
+// Fuck off as a service api
+// client.on('messageCreate', message => {
+// 	if  (message.content.toLowerCase().includes('chase')) {
+// 		toPerson = ("chase");
+// 		fromPerson = ("your_mom")
+// 		fuckYou()
+// 		.then(data => message.reply(data));
+// }});
+// async function fuckYou() {
+// 	let response =  await fetch(`https://foass.1001010.com/you/${toPerson}/${fromPerson}`,
+// 		{headers: { 
+// 			Accept: "application", "json"
+// 	},
+// });
+// 	let data = await response
+// 	return data;
+// }
+
+https://foass.1001010.com/you/Brian/Lane
 // // call Giphy api
 // client.on('messageCreate', message => {
 // 	if (message.content.includes('balls')) {
