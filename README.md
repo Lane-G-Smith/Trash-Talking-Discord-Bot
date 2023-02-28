@@ -18,26 +18,34 @@
 
 # Jerry-Bot
 
+## install system dependencies, follow their website instructions:
+```sh
+git & node.js
+```
+## Clone repository:
+```sh
+enter in terminal: git clone green_code_button_https_link_here
+```
 ## install dependencies:
 ```sh
-npm install
+enter in terminal: npm install
 ```
-## create a production build:
-
+## Create file in root directory, name it .env:
 ```sh
-npm run build-prod
+Discord.bot/.env
 ```
-## create a development build:
+## place your bot token from https://discord.com/developers/applications in the .env file exactly as follows:
 ```sh
-npm run build-dev
+TOKEN=your_unique_token_here
 ```
-## run
+## start bot by navigating to Discord.Bot/ in terminal & entering
 ```sh
-node dist/bundle.js
+node index.js
 ```
-## test
-To run unit tests:
-
+## congradulations
 ```sh
-npm test
+Your bot should now be live
 ```
+## invite your bot to a test Discord server
+```sh
+Your invite link is located in the Discord dev portal
