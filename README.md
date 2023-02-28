@@ -18,34 +18,43 @@
 
 # Jerry-Bot
 
-## install system dependencies, follow their website instructions:
+## you need to get the empty bot from Discord before you can program it
 ```sh
-git & node.js
+create a bot application at https://discord.com/developers/applications
 ```
-## Clone repository:
+## install system dependencies git & node.js:
 ```sh
-enter in terminal: git clone green_code_button_https_link_here
+https://git-scm.com/downloads & https://nodejs.org/en/
 ```
-## install dependencies:
+## create a new folder and install git:
 ```sh
-enter in terminal: npm install
+open new folder in terminal and enter: git init
 ```
-## Create file in root directory, name it .env:
+## clone this repository:
 ```sh
-Discord.bot/.env
+open new folder in terminal and enter: git clone https://green_"code"_button_form_repository_https_link_here_
 ```
-## place your bot token from https://discord.com/developers/applications in the .env file exactly as follows:
+## install program dependencies:
 ```sh
-TOKEN=your_unique_token_here
+open /Discord.Bot in terminal and enter: npm install
 ```
-## start bot by navigating to Discord.Bot/ in terminal & entering
+## create file in Discord.Bot directory, name it .env:
 ```sh
-node index.js
+/Discord.bot/.env
+```
+## place bot token from https://discord.com/developers/applications in the .env file:
+```sh
+type this exactly, is case sensitive: TOKEN=your_unique_token_here
+```
+## use terminal to host the bot locally
+```sh
+open /Discord.Bot in terminal and enter: node index.js
 ```
 ## congradulations
 ```sh
-Your bot should now be live
+your bot should now be live & confirmation should have logged in the terminal
 ```
-## invite your bot to a test Discord server
+## invite your bot to a Discord server
 ```sh
-Your invite link is located in the Discord dev portal
+your invite link is located in the Discord dev portal at https://discord.com/developers/applications
+```
