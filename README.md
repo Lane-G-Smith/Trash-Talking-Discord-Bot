@@ -1,4 +1,4 @@
-<h1 align="center">Vanilla Discord Bot GPT-3.5-Turbo</h1>
+<h1 align="center">TrashTalkingDiscordBot</h1>
 <table align="center">
   <tr>
     <td align="center" height="108" width="108">
@@ -9,7 +9,7 @@
         <br /><strong>Discord.js</strong>
     </td>
     <td align="center" height="108">
-      <p align="center">A simple vanilla javascript Discord bot for interacting with the new language model GPT-3.5-Turbo by OpenAI
+      <p align="center">A NSFW Discord bot that utilizes a rude version of GPT, talks trash, posts memes, and calls funny APIs such as Trump quotes, Chuck Norris jokes, Mom jokes, Ron Swanson quotes, dumb insults etc.
       </p>
      </td>
    </tr>
@@ -40,13 +40,13 @@ git init
 ```
 ### Navigate to new git folder in terminal and clone this repository: 
 ```sh
-git clone https://github.com/Lane-G-Smith/VanillaDiscordBot-GPT-3.5-Turbo.git
+git clone https://github.com/Lane-G-Smith/Discord.Bot.git
 ```
-### Navigate to VanillaDiscordBotGPT-3.5-Turbo folder and install dependencies:
+### Navigate to TrashTalkingDiscordBot folder and install dependencies:
 ```sh
 npm install
 ```
-### Create new file in VanillaDiscordBotGPT-3.5-Turbo folder and name it .env
+### Create new file in TrashTalkingDiscordBot folder and name it .env
 ```sh
 ```
 ### Place your secret Discord bot token from the first step into the .env file:
@@ -56,10 +56,6 @@ TYPE THIS EXACTLY, IT IS CASE SENSITIVE: TOKEN=your_unique_token_here
 ### Place your secret OpenAI API key from the second step into the .env file:
 ```sh
 TYPE THIS EXACTLY, IT IS CASE SENSITIVE: OPENAI_API_KEY=your_unique_API_key_here
-```
-### Replace three lines in the code (40,41,42, self explanatory when you look at it) to personalize functionality
-```sh
-The characteristics of your AI and how to answer questions, one example question, one example answer.
 ```
 ### To host the bot locally, open project terminal and run a node server
 ```sh
