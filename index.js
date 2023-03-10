@@ -1,9 +1,16 @@
 // import bot token from .env file
 const TOKEN = require('dotenv').config();
+const SECRET_KEY = require('dotenv').config();
 
 // import discord.js module
 const {Client, GatewayIntentBits} = require('discord.js');
 const { json } = require('stream/consumers');
+
+// import openai module, key, new config
+const { Configuration, OpenAIApi } = require("openai");
+const configuration = new Configuration({
+apiKey: process.env.OPENAI_API_KEY, });
+const openai = new OpenAIApi(configuration);
 
 // configure permissions(intents)
 const client = new Client({intents: 
@@ -26,7 +33,7 @@ client.on('ready', () => {
 
 // call sweet burn api
 client.on('messageCreate', message => {
-	if (message.content.toLowerCase() === 'dumb-insult') {
+	if (message.content.toLowerCase() === 'insult') {
 		dumbInsult()
 		.then(data => message.reply(data.insult));
 	}
@@ -52,7 +59,7 @@ async function momJoke() {
 
 // call Chuck Norris Joke api
 client.on('messageCreate', message => {
-	if (message.content.toLowerCase().includes('-chuck')) {
+	if (message.content.toLowerCase().includes('awesome')) {
 		chuckNorris()
 		.then(data => message.reply(data.value));
 	}
@@ -65,7 +72,7 @@ async function chuckNorris() {
 
 // call Kanye quote api
 client.on('messageCreate', message => {
-	if (message.content.toLowerCase().includes('kanye')) {
+	if (message.content.toLowerCase().includes('deep')) {
 		kanye()
 		.then(data => message.reply(data.quote + " ............... K a n y e  W e s t"));
 	}
@@ -78,7 +85,7 @@ async function kanye() {
 
 // call Trump quote api
 client.on('messageCreate', message => {
-	if (message.content.toLowerCase().includes('donald')) {
+	if (message.content.toLowerCase().includes('politics')) {
 		trump()
 		.then(data => message.reply((data.value) + " ............... D o n a l d  T r u m p"));
 	}
@@ -91,7 +98,7 @@ async function trump() {
 
 // call useless fact api
 client.on('messageCreate', message => {
-	if (message.content.toLowerCase().includes('useless')) {
+	if (message.content.toLowerCase().includes('fact')) {
 		useless()
 		.then(data => message.reply((data.text) + (" ............... Y o u r ' e  W e l c o m e")));
 	}
@@ -104,7 +111,7 @@ async function useless() {
 
 // call Ron Swanson quote api
 client.on('messageCreate', message => {
-	if (message.content.toLowerCase().includes('ron')) {
+	if (message.content.toLowerCase().includes('classic')) {
 		ron()
 		.then(data => message.reply((data) + (" ............... R o n  S w a n s o n")));
 	}
@@ -115,36 +122,24 @@ async function ron() {
 	return data;
 }
 
-// Fuck off as a service api
-// client.on('messageCreate', message => {
-// 	if  (message.content.toLowerCase().includes('chase')) {
-// 		toPerson = ("chase");
-// 		fromPerson = ("your_mom")
-// 		fuckYou()
-// 		.then(data => message.reply(data));
-// }});
-// async function fuckYou() {
-// 	let response =  await fetch(`https://foass.1001010.com/you/${toPerson}/${fromPerson}`,
-// 		{headers: { 
-// 			Accept: "application", "json"
-// 	},
-// });
-// 	let data = await response
-// 	return data;
-// }
+// function returns AI response every time text is sent to server
+client.on('messageCreate', async function (message) {
+    try {
+        // ignore input from the bot itself
+        if (message.author.bot) return;
+        const completion = await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages:[
+                {"role": "system", "content": "You are a trash talking heckling bot that talks shit constantly. You insult people in hilarious ways."},
+                {"role": "user", "content": "When will you be on?"},
+                {"role": "assistant", "content": "probably after I'm finished with your mom, douchebag"},
+                {"role": "user", "content": `${message.content}`}
+        ]});
+        message.reply(`${completion.data.choices[0].message.content}`) 
+    }   catch (error) {
+            console.log(error)
+            }
+});
 
-https://foass.1001010.com/you/Brian/Lane
-// // call Giphy api
-// client.on('messageCreate', message => {
-// 	if (message.content.includes('balls')) {
-// 		termMeme().then(data => message.reply(data[0].images.original.url));
-// 	}
-// });
-// async function termMeme() {
-// 	let response =  await fetch('https://api.giphy.com/v1/gifs/translate?api_key=4U0KfRgkrwJNDx0OHiP3xWhK6jGuklUy&s=balls');
-// 	let data = await response.json()
-// 	return data;
-// }
-
-// client.login
+// log in with token from .env file
 client.login(process.env.TOKEN)

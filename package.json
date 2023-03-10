@@ -16,7 +16,8 @@
   "dependencies": {
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
-    "node": "^19.6.0"
+    "node": "^19.6.0",
+    "openai": "^3.2.1"
   },
   "devDependencies": {
     "jest": "^29.4.2"
