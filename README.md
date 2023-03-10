@@ -1,4 +1,4 @@
-<h1 align="center">Discord.Bot</h1>
+<h1 align="center">Vanilla Discord Bot GPT-3.5-Turbo</h1>
 <table align="center">
   <tr>
     <td align="center" height="108" width="108">
@@ -9,52 +9,63 @@
         <br /><strong>Discord.js</strong>
     </td>
     <td align="center" height="108">
-      <p align="center">A discord bot that insults people and their moms, quotes geniuses like Trump and Kanye, and posts Chuck Norris jokes and memes.
+      <p align="center">A simple vanilla javascript Discord bot for interacting with the new language model GPT-3.5-Turbo by OpenAI
       </p>
      </td>
    </tr>
  </table>
 
 
-# Jerry-Bot
+# GPT-3.5-Turbo-Bot
 
-## you need to get the empty bot from Discord before you can program it
+### Get the bot 'shell' from Discord. It's free, and it takes 5 minutes
 ```sh
-create a bot application at https://discord.com/developers/applications
+https://discord.com/developers/applications
 ```
-## install system dependencies git & node.js:
+### Go to OpenAI and open an account. (This is the exact same account that other services upcharge for)
 ```sh
-https://git-scm.com/downloads & https://nodejs.org/en/
+https://platform.openai.com/signup
 ```
-## create a new folder and install git:
+### Install node.js
 ```sh
-open new folder in terminal and enter: git init
+https://nodejs.org/en/
 ```
-## clone this repository:
+### Install git:
 ```sh
-open new folder in terminal and enter: git clone https://green_"code"_button_form_repository_https_link_here_
+https://git-scm.com/downloads
 ```
-## install program dependencies:
+### Create a new folder and navigate to it in terminal to set up git
 ```sh
-open /Discord.Bot in terminal and enter: npm install
+git init
 ```
-## create file in Discord.Bot directory, name it .env:
+### Navigate to new git folder in terminal and clone this repository: 
 ```sh
-/Discord.bot/.env
+git clone https://github.com/Lane-G-Smith/VanillaDiscordBot-GPT-3.5-Turbo.git
 ```
-## place bot token from https://discord.com/developers/applications in the .env file:
+### Navigate to VanillaDiscordBotGPT-3.5-Turbo folder and install dependencies:
 ```sh
-type this exactly, is case sensitive: TOKEN=your_unique_token_here
+npm install
 ```
-## use terminal to host the bot locally
+### Create new file in VanillaDiscordBotGPT-3.5-Turbo folder and name it .env
 ```sh
-open /Discord.Bot in terminal and enter: node index.js
 ```
-## congradulations
+### Place your secret Discord bot token from the first step into the .env file:
 ```sh
-your bot should now be live & confirmation should have logged in the terminal
+TYPE THIS EXACTLY, IT IS CASE SENSITIVE: TOKEN=your_unique_token_here
 ```
-## invite your bot to a Discord server
+### Place your secret OpenAI API key from the second step into the .env file:
 ```sh
-your invite link is located in the Discord dev portal at https://discord.com/developers/applications
+TYPE THIS EXACTLY, IT IS CASE SENSITIVE: OPENAI_API_KEY=your_unique_API_key_here
+```
+### Replace three lines in the code (40,41,42, self explanatory when you look at it) to personalize functionality
+```sh
+The characteristics of your AI and how to answer questions, one example question, one example answer.
+```
+### To host the bot locally, open project terminal and run a node server
+```sh
+node index.js
+```
+### Congradulations, your bot should now be live & confirmation should be logged in the terminal. Use your personal link from the Discord developer portal to invite your bot to a Discord server
+```sh
+https://discord.com/developers/applications
 ```
