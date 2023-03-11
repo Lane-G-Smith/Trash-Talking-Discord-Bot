@@ -55,9 +55,17 @@ TYPE THIS EXACTLY, IT IS CASE SENSITIVE: TOKEN=your_unique_token_here
 ```sh
 TYPE THIS EXACTLY, IT IS CASE SENSITIVE: OPENAI_API_KEY=your_unique_API_key_here
 ```
-### To host the bot locally, open project terminal and run a node server
+### To host the bot locally, open project in terminal and run node
 ```sh
 node index.js
+```
+### To host the bot locally and keep it running in the background indefinitely, install PM2
+```sh
+npm install pm2 -g
+```
+### run your bot locally using pm2
+```sh
+pm2 start index.js
 ```
 ### Confirmation should be logged in the terminal. Use your personal link from the Discord developer portal to invite your bot to a Discord server
 ```sh
