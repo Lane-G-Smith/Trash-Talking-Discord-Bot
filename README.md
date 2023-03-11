@@ -47,8 +47,6 @@ git clone https://github.com/Lane-G-Smith/Trash-Talking-Discord-Bot
 npm install
 ```
 ### Create new file in Trash-Talking-Discord-Bot folder and name it .env
-```sh
-```
 ### Place your secret bot token from the first step into the .env file
 ```sh
 TYPE THIS EXACTLY, IT IS CASE SENSITIVE: TOKEN=your_unique_token_here
