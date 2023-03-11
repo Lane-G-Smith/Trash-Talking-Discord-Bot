@@ -16,13 +16,13 @@
  </table>
 
 
-# GPT-3.5-Turbo-Bot
+#Trash-Talking-Discord-Bot
 
 ### Get the bot 'shell' from Discord. It's free, and it takes 5 minutes
 ```sh
 https://discord.com/developers/applications
 ```
-### Go to OpenAI and open an account. (This is the exact same account that other services upcharge for)
+### Go to OpenAI and open an account
 ```sh
 https://platform.openai.com/signup
 ```
@@ -30,30 +30,30 @@ https://platform.openai.com/signup
 ```sh
 https://nodejs.org/en/
 ```
-### Install git:
+### Install git
 ```sh
 https://git-scm.com/downloads
 ```
-### Create a new folder and navigate to it in terminal to set up git
+### Create a new folder and open it in terminal
 ```sh
 git init
 ```
-### Navigate to new git folder in terminal and clone this repository: 
+### Navigate to new git folder in terminal and clone this repository
 ```sh
-git clone https://github.com/Lane-G-Smith/Discord.Bot.git
+git clone https://github.com/Lane-G-Smith/Trash-Talking-Discord-Bot
 ```
-### Navigate to TrashTalkingDiscordBot folder and install dependencies:
+### Navigate to new Trash-Talking-Discord-Bot folder and install dependencies
 ```sh
 npm install
 ```
-### Create new file in TrashTalkingDiscordBot folder and name it .env
+### Create new file in Trash-Talking-Discord-Bot folder and name it .env
 ```sh
 ```
-### Place your secret Discord bot token from the first step into the .env file:
+### Place your secret bot token from the first step into the .env file
 ```sh
 TYPE THIS EXACTLY, IT IS CASE SENSITIVE: TOKEN=your_unique_token_here
 ```
-### Place your secret OpenAI API key from the second step into the .env file:
+### Place your secret OpenAI API key from the second step into the .env file
 ```sh
 TYPE THIS EXACTLY, IT IS CASE SENSITIVE: OPENAI_API_KEY=your_unique_API_key_here
 ```
@@ -61,7 +61,7 @@ TYPE THIS EXACTLY, IT IS CASE SENSITIVE: OPENAI_API_KEY=your_unique_API_key_here
 ```sh
 node index.js
 ```
-### Congradulations, your bot should now be live & confirmation should be logged in the terminal. Use your personal link from the Discord developer portal to invite your bot to a Discord server
+### Confirmation should be logged in the terminal. Use your personal link from the Discord developer portal to invite your bot to a Discord server
 ```sh
 https://discord.com/developers/applications
 ```
