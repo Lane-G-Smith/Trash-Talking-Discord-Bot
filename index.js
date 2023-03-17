@@ -33,9 +33,11 @@ client.on('ready', () => {
 
 // call sweet burn api
 client.on('messageCreate', message => {
-	if (message.content.toLowerCase() === 'insult') {
+	// ignore input from the bot itself
+        if (message.author.bot) return;
+	if (message.content.toLowerCase().includes('insult') {
 		dumbInsult()
-		.then(data => message.reply(data.insult));
+		.then(data => message.reply(`Insulting people huh? well ${data.insult}`));
 	}
 });
 async function dumbInsult() {
@@ -46,9 +48,11 @@ async function dumbInsult() {
 
 // call mom joke api
 client.on('messageCreate', message => {
+	// ignore input from the bot itself
+        if (message.author.bot) return;
 	if (message.content.toLowerCase().includes('mom')) {
 		momJoke()
-		.then(data => message.reply(data.joke));
+		.then(data => message.reply(`Speaking of moms, ${data.joke}`));
 	}
 });
 async function momJoke() {
@@ -59,9 +63,11 @@ async function momJoke() {
 
 // call Chuck Norris Joke api
 client.on('messageCreate', message => {
+	// ignore input from the bot itself
+        if (message.author.bot) return;
 	if (message.content.toLowerCase().includes('awesome')) {
 		chuckNorris()
-		.then(data => message.reply(data.value));
+		.then(data => message.reply(`You think you know what awesome is? ${data.value}`));
 	}
 });
 async function chuckNorris() {
@@ -72,9 +78,11 @@ async function chuckNorris() {
 
 // call Kanye quote api
 client.on('messageCreate', message => {
+	// ignore input from the bot itself
+        if (message.author.bot) return;
 	if (message.content.toLowerCase().includes('deep')) {
 		kanye()
-		.then(data => message.reply(data.quote + " ............... K a n y e  W e s t"));
+		.then(data => message.reply(`Deep you say? Well,  ${data.quote} ............... K a n y e  W e s t`));
 	}
 });
 async function kanye() {
@@ -85,9 +93,11 @@ async function kanye() {
 
 // call Trump quote api
 client.on('messageCreate', message => {
-	if (message.content.toLowerCase().includes('politics')) {
+	// ignore input from the bot itself
+        if (message.author.bot) return;
+	if (message.content.toLowerCase().includes('politics' 'democrat' 'republican' 'president' 'election')) {
 		trump()
-		.then(data => message.reply((data.value) + " ............... D o n a l d  T r u m p"));
+		.then(data => message.reply(`So you wanna talk politics? Well, did you hear this? ${data.value} ............... D o n a l d  T r u m p`));
 	}
 });
 async function trump() {
@@ -98,9 +108,11 @@ async function trump() {
 
 // call useless fact api
 client.on('messageCreate', message => {
+	// ignore input from the bot itself
+        if (message.author.bot) return;
 	if (message.content.toLowerCase().includes('fact')) {
 		useless()
-		.then(data => message.reply((data.text) + (" ............... Y o u r ' e  W e l c o m e")));
+		.then(data => message.reply(`Here's a fun fact. {data.text} ............... Y o u r ' e  W e l c o m e`)));
 	}
 });
 async function useless() {
@@ -111,9 +123,11 @@ async function useless() {
 
 // call Ron Swanson quote api
 client.on('messageCreate', message => {
-	if (message.content.toLowerCase().includes('classic')) {
+	// ignore input from the bot itself
+        if (message.author.bot) return;
+	if (message.content.toLowerCase().includes('men' 'man' 'testosterone')) {
 		ron()
-		.then(data => message.reply((data) + (" ............... R o n  S w a n s o n")));
+		.then(data => message.reply(`Speaking of Men and manly things, ${data} ............... R o n  S w a n s o n));
 	}
 });
 async function ron() {
