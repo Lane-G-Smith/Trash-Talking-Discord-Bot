@@ -35,7 +35,7 @@ client.on('ready', () => {
 client.on('messageCreate', message => {
 	// ignore input from the bot itself
         if (message.author.bot) return;
-	if (message.content.toLowerCase().includes('insult') {
+	if (message.content.toLowerCase().includes('insult')) {
 		dumbInsult()
 		.then(data => message.reply(`Insulting people huh? well ${data.insult}`));
 	}
@@ -82,7 +82,7 @@ client.on('messageCreate', message => {
         if (message.author.bot) return;
 	if (message.content.toLowerCase().includes('deep')) {
 		kanye()
-		.then(data => message.reply(`Deep you say? Well,  ${data.quote} ............... K a n y e  W e s t`));
+		.then(data => message.reply(`Deep you say? Well, ${data.quote} ............... K a n y e  W e s t`));
 	}
 });
 async function kanye() {
@@ -95,10 +95,12 @@ async function kanye() {
 client.on('messageCreate', message => {
 	// ignore input from the bot itself
         if (message.author.bot) return;
-	if (message.content.toLowerCase().includes('politics' 'democrat' 'republican' 'president' 'election')) {
+	const trump = ['trump', 'president', 'election', 'democrat', 'republican'];
+	for (const val of trump) {
+	if (message.content.toLowerCase().includes(val)) {
 		trump()
 		.then(data => message.reply(`So you wanna talk politics? Well, did you hear this? ${data.value} ............... D o n a l d  T r u m p`));
-	}
+	}}
 });
 async function trump() {
 	let response =  await fetch('https://tronalddump.io/random/quote');
@@ -112,11 +114,11 @@ client.on('messageCreate', message => {
         if (message.author.bot) return;
 	if (message.content.toLowerCase().includes('fact')) {
 		useless()
-		.then(data => message.reply(`Here's a fun fact. {data.text} ............... Y o u r ' e  W e l c o m e`)));
+		.then(data => message.reply(`Here's a fun fact. {data.text} ............... Y o u r ' e  W e l c o m e`));
 	}
 });
 async function useless() {
-	let response =  await fetch('https://uselessfacts.jsph.pl/random.json?language=en');
+	let response = await fetch('https://uselessfacts.jsph.pl/random.json?language=en');
 	let data = await response.json()
 	return data;
 }
@@ -125,10 +127,12 @@ async function useless() {
 client.on('messageCreate', message => {
 	// ignore input from the bot itself
         if (message.author.bot) return;
-	if (message.content.toLowerCase().includes('men' 'man' 'testosterone')) {
+	const Swanson = ['man', 'men', 'manly', 'testosterone', 'dick'];
+	for (const val of Swanson) {
+		if (message.content.toLowerCase().includes(val)) {
 		ron()
-		.then(data => message.reply(`Speaking of Men and manly things, ${data} ............... R o n  S w a n s o n));
-	}
+		.then(data => message.reply(`Speaking of Men and manly things, ${data} ............... R o n  S w a n s o n`));
+	}}
 });
 async function ron() {
 	let response =  await fetch('http://ron-swanson-quotes.herokuapp.com/v2/quotes');
