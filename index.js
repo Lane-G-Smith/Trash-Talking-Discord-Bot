@@ -95,12 +95,10 @@ async function kanye() {
 client.on('messageCreate', message => {
 	// ignore input from the bot itself
         if (message.author.bot) return;
-	const trump = ['trump', 'president', 'election', 'democrat', 'republican'];
-	for (const val of trump) {
-	if (message.content.toLowerCase().includes(val)) {
+	if (message.content.toLowerCase().includes("politics")) {
 		trump()
 		.then(data => message.reply(`So you wanna talk politics? Well, did you hear this? ${data.value} ............... D o n a l d  T r u m p`));
-	}}
+	}
 });
 async function trump() {
 	let response =  await fetch('https://tronalddump.io/random/quote');
@@ -127,12 +125,10 @@ async function useless() {
 client.on('messageCreate', message => {
 	// ignore input from the bot itself
         if (message.author.bot) return;
-	const Swanson = ['man', 'men', 'manly', 'testosterone', 'dick'];
-	for (const val of Swanson) {
-		if (message.content.toLowerCase().includes(val)) {
+		if (message.content.toLowerCase().includes("man")) {
 		ron()
 		.then(data => message.reply(`Speaking of Men and manly things, ${data} ............... R o n  S w a n s o n`));
-	}}
+	}
 });
 async function ron() {
 	let response =  await fetch('http://ron-swanson-quotes.herokuapp.com/v2/quotes');
@@ -145,18 +141,20 @@ client.on('messageCreate', async function (message) {
     try {
         // ignore input from the bot itself
         if (message.author.bot) return;
-        const completion = await openai.createChatCompletion({
-            model: "gpt-3.5-turbo",
-            messages:[
-                {"role": "system", "content": "You are a trash talking heckling bot that talks shit constantly. You insult people in hilarious ways."},
-                {"role": "user", "content": "When will you be on?"},
-                {"role": "assistant", "content": "probably after I'm finished with your mom, douchebag"},
-                {"role": "user", "content": `${message.content}`}
-        ]});
-        message.reply(`${completion.data.choices[0].message.content}`) 
-    }   catch (error) {
-            message.reply(`${error}`)
-            }
+        const response = await openai.createCompletion({
+            model: "text-davinci-003",
+            prompt: `You are Dick. Dick Always responds, but does it in a grumpy way with sass, attitude, sarcasm, rudeness, and tons of curse words such as asshole shithead fuckface douchebag dick bitch chode fucker. ${message}`,
+            temperature: 0.7,
+            max_tokens: 200,
+            top_p: 1,
+            frequency_penalty: 0.2,
+            presence_penalty: 0,
+        });
+        	message.reply(`${response.data.choices[0].text}`);
+		}   
+	catch (error) {
+        message.reply(`${error}`)
+    }
 });
 
 // log in with token from .env file
