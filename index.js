@@ -37,7 +37,7 @@ client.on("ready", () => {
 // basic api call switch
 client.on("messageCreate", async function (message) {
  try{
-	switch (message.content.toLowerCase().includes) {
+	switch (message.content.toLowerCase()) {
 		case 'insult':
 			dumbInsult().then((data) =>
 				message.reply(`Insulting people huh? well ${data.insult}`)
@@ -70,7 +70,7 @@ client.on("messageCreate", async function (message) {
 		case 'fact':
 			useless().then((data) =>
 				message.reply(
-					`Here's a fun fact. {data.text} ............... Y o u r ' e  W e l c o m e`
+					`Here's a fun fact. ${data.text} ............... Y o u r ' e  W e l c o m e`
 				)
 			);
 			break;
@@ -149,7 +149,7 @@ async function ron() {
 }
 
 // gpt 3.5 turbo chatbot
-async function askdick() {
+async function askdick(message) {
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: [
@@ -176,7 +176,7 @@ async function askdick() {
     },
     { 
       role: "user", 
-      content: `${interaction.content}` 
+      content: `${message}` 
     },
     ],
   });
