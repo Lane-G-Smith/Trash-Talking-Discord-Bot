@@ -1,25 +1,21 @@
 {
   "name": "discord-bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "funny chatbot for game server",
   "main": "index.js",
   "keywords": [],
   "author": "Lane-G-Smith",
   "license": "MIT",
-  "guildId": "1047982916329820211",
+  "guildId": "",
   "token": "",
   "clientID": "1047980373419765831",
-  "scripts": {
-    "clean": "rm dist/bundle.js",
-    "test": "jest"
-  },
+  "scripts": {},
+
   "dependencies": {
-    "discord.js": "^14.7.1",
-    "dotenv": "^16.0.3",
-    "node": "^19.6.0",
-    "openai": "^3.2.1"
+    "discord.js": "^14.07.1",
+    "dotenv": "^16.3.1",
+    "node": "^19.8.1",
+    "openai": "^3.3.0"
   },
-  "devDependencies": {
-    "jest": "^29.4.2"
-  }
+  "devDependencies": {}
 }
