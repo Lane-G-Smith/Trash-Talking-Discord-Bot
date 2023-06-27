@@ -81,7 +81,7 @@ client.on("messageCreate", async function (message) {
 				)
 			);
 			break;
-    case 'dick':
+    		case 'dick':
 			askdick().then((completion) =>
       message.reply(`${completion.data.choices[0].message.content}`)
 			);
