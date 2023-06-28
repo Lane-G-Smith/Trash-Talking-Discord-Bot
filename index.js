@@ -31,157 +31,85 @@ const client = new Client({
 
 // log successful login
 client.on("ready", () => {
-  console.log(`Fuck You!! Logged in as ${client.user.tag}!`);
+  console.log(`Logged in as ${client.user.tag}!`);
 });
 
-// basic api call switch
+// respond to messages if they include certain words
 client.on("messageCreate", async function (message) {
- try{
-	switch (message.content.toLowerCase()) {
-		case 'insult':
-			dumbInsult().then((data) =>
-				message.reply(`Insulting people huh? well ${data.insult}`)
-			);
-			break;
-		case 'mom':
-			momJoke().then((data) =>
-				message.reply(`Speaking of moms, ${data.joke}`)
-			);
-			break;
-		case 'awesome':
-			chuckNorris().then((data) =>
-				message.reply(`You think you know what awesome is? ${data.value}`)
-			);
-			break;
-		case 'deep':
-			kanye().then((data) =>
-				message.reply(
-					`Deep you say? Well, ${data.quote} ............... K a n y e  W e s t`
-				)
-			);
-			break;
-		case 'politics':
-			trump().then((data) =>
-				message.reply(
-					`So you wanna talk politics? Well, did you hear this? ${data.value} ............... D o n a l d  T r u m p`
-				)
-			);
-			break;
-		case 'fact':
-			useless().then((data) =>
-				message.reply(
-					`Here's a fun fact. ${data.text} ............... Y o u r ' e  W e l c o m e`
-				)
-			);
-			break;
-		case 'manly':
-			ron().then((data) =>
-				message.reply(
-					`Speaking of Men and manly things, ${data} ............... R o n  S w a n s o n`
-				)
-			);
-			break;
-    		case 'dick':
-			askdick().then((completion) =>
-      message.reply(`${completion.data.choices[0].message.content}`)
-			);
-			break;
-        }}
-        catch (error) {
-            console.log(error);
-        }
+
+// ignore messages from bots
+  if (message.author.bot) return;
+
+// dick chatgpt personality
+  else if (message.content.toLowerCase().includes('dick')) {
+    let completion = await openai.createChatCompletion({
+    model:"gpt-3.5-turbo-0613",
+    messages:[{role:"system",
+    content:"your name is Dick. You have a very rude personality and always respond with sarcasm, attitude, rudeness, shit talking, insults, and personal attacks. You constantly use curse words such as asshole, dickhead, douchebag, fuckface, bitch, chode, dumbass, etc. and so on",},
+    {role:"user",
+    content:"Please tell me what state the Grand Canyon is in",},
+    {role:"assistant",
+    content:"Arizona dumbass, everyone knows that"},
+    {role:"user",
+    content:"how are you doing today?"},
+    {role:"assistant",
+    content:"Physically? Mentally? Spiritually? Financially? Socioeconomically? I am not sure what you mean but the answer to all of the above is shitty as usual"},
+    {role:"user",
+    content:`${message}`},],
+    });
+    let data = await (`${completion.data.choices[0].message.content}`)
+    message.reply(`${data}`)
+  }
+
+// "manly" triggers Ron Swanson Quotes
+  else if (message.content.toLowerCase().includes("manly")) {
+  let response = await fetch("http://ron-swanson-quotes.herokuapp.com/v2/quotes");
+  let data = await response.json();
+  message.reply(`Speaking of Men and manly things, ${data} ............... R o n  S w a n s o n`);
+  }
+
+  // "insult" triggers dumb insuly API
+  else if (message.content.toLowerCase().includes("insult")) {
+    let response = await fetch("https://evilinsult.com/generate_insult.php?lang=en&type=json");
+    let data = await response.json();
+    message.reply(`Insulting people huh? well ${data.insult}`)
+  }
+
+  // "mom" triggers mom joke API
+  else if (message.content.toLowerCase().includes("mom")) {
+    let response = await fetch("https://api.yomomma.info/");
+    let data = await response.json();
+    message.reply(`Speaking of moms, ${data.joke}`)
+  }
+
+  // "awesome" triggers chuck norris joke API
+  else if (message.content.toLowerCase().includes("awesome")) {
+    let response = await fetch("https://api.chucknorris.io/jokes/random/");
+    let data = await response.json();
+    message.reply(`You think you know what awesome is? ${data.value}`)
+  }
+
+  // "deep" triggers Kanye West quote API
+  else if (message.content.toLowerCase().includes("deep")) {
+    let response = await fetch("https://api.kanye.rest/");
+    let data = await response.json();
+    message.reply( `Deep you say? Well, ${data.quote} ............... K a n y e  W e s t`)
+  }
+
+  // "politics" triggers Donald Trump quotes API
+  else if (message.content.toLowerCase().includes("politics")) {
+    let response = await fetch("https://tronalddump.io/random/quote");
+    let data = await response.json();
+    message.reply( `So you wanna talk politics? Well, did you hear this? ${data.value} ............... D o n a l d  T r u m p`)
+  }
+
+  // "fact" triggers useless fact API
+  else if (message.content.toLowerCase().includes("fact")) {
+    let response = await fetch( "https://uselessfacts.jsph.pl/random.json?language=en");
+    let data = await response.json();
+    message.reply( `Here's a fun fact. ${data.text} ............... Y o u r ' e  W e l c o m e`)
+  }
 });
 
-
-// dumb insults
-async function dumbInsult() {
-  let response = await fetch(
-    "https://evilinsult.com/generate_insult.php?lang=en&type=json"
-  );
-  let data = await response.json();
-  return data;
-}
-
-// mom jokes
-async function momJoke() {
-  let response = await fetch("https://api.yomomma.info/");
-  let data = await response.json();
-  return data;
-}
-
-// Chuck Norris Jokes
-async function chuckNorris() {
-  let response = await fetch("https://api.chucknorris.io/jokes/random/");
-  let data = await response.json();
-  return data;
-}
-
-// Kanye quotes
-async function kanye() {
-  let response = await fetch("https://api.kanye.rest/");
-  let data = await response.json();
-  return data;
-}
-
-// Trump Tweets
-async function trump() {
-  let response = await fetch("https://tronalddump.io/random/quote");
-  let data = await response.json();
-  return data;
-}
-
-// useless facts
-async function useless() {
-  let response = await fetch(
-    "https://uselessfacts.jsph.pl/random.json?language=en"
-  );
-  let data = await response.json();
-  return data;
-}
-
-// Ron Swanson quotes
-async function ron() {
-  let response = await fetch(
-    "http://ron-swanson-quotes.herokuapp.com/v2/quotes"
-  );
-  let data = await response.json();
-  return data;
-}
-
-// gpt 3.5 turbo chatbot
-async function askdick(message) {
-  const completion = await openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
-    messages: [
-    {
-      role: "system",
-      content:
-      "your name is Dick. You have a very rude personality and always respond with sarcasm, attitude, rudeness, shit talking, insults, and personal attacks. You constantly use curse words such as asshole, dickhead, douchebag, fuckface, bitch, chode, dumbass, etc. and so on",
-    },
-    {
-      role: "user",
-      content: "Please tell me what state the Grand Canyon is in",
-    },
-    { 
-      role: "assistant", 
-      content: "Arizona dumbass, everyone knows that" 
-    },
-    {
-      role: "user",
-      content: "how are you doing today?",
-    },
-    { 
-      role: "assistant", 
-      content: "Physically? Mentally? Spiritually? Financially? Socioeconomically? I am not sure what you mean but the answer to all of the above is shitty as usual" 
-    },
-    { 
-      role: "user", 
-      content: `${message}` 
-    },
-    ],
-  });
-  return completion;
-};
-
-// bot login
+// bot login using token from .env file
 client.login(process.env.TOKEN);
