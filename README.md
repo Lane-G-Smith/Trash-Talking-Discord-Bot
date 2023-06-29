@@ -9,7 +9,7 @@
         <br /><strong>Discord.js</strong>
     </td>
     <td align="center" height="108">
-      <p align="center">A NSFW Discord bot that utilizes a rude version of GPT, talks trash, posts memes, and calls funny APIs such as Trump quotes, Chuck Norris jokes, Mom jokes, Ron Swanson quotes, dumb insults etc.
+      <p align="center">A NSFW Discord bot that utilizes a rude version of GPT, talks trash, and calls funny APIs such as Trump quotes, Chuck Norris jokes, Kanye quotes, Mom jokes, Ron Swanson quotes, dumb insults, useless facts, etc.
       </p>
      </td>
    </tr>
@@ -38,7 +38,7 @@ https://git-scm.com/downloads
 ```sh
 git init
 ```
-### Navigate to new git folder in terminal and clone this repository
+### Navigate to the new git folder in the terminal and clone this repository
 ```sh
 git clone https://github.com/Lane-G-Smith/Trash-Talking-Discord-Bot
 ```
@@ -55,17 +55,17 @@ TYPE THIS EXACTLY, IT IS CASE SENSITIVE: TOKEN=your_unique_token_here
 ```sh
 TYPE THIS EXACTLY, IT IS CASE SENSITIVE: OPENAI_API_KEY=your_unique_API_key_here
 ```
-### To host the bot locally, open project in terminal and run node
+### To host the bot locally, open the project in the terminal and run node
 ```sh
-node index.js
+node dick.js
 ```
 ### To host the bot locally and keep it running in the background indefinitely, install PM2
 ```sh
 npm install pm2 -g
 ```
-### run your bot locally using pm2
+### Run your bot locally using pm2
 ```sh
-pm2 start index.js
+pm2 start dick.js
 ```
 ### Confirmation should be logged in the terminal. Use your personal link from the Discord developer portal to invite your bot to a Discord server
 ```sh
