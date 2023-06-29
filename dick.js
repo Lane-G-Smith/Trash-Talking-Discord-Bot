@@ -3,7 +3,7 @@ const TOKEN = require('dotenv').config();
 const SECRET_KEY = require('dotenv').config();
 
 // import discord.js module
-const {Client,GatewayIntentBits} = require('discord.js');
+const {Client,GatewayIntentBits, Util} = require('discord.js');
 
 // not sure what this does
 const { json } = require('stream/consumers');
@@ -42,23 +42,35 @@ client.on("messageCreate", async function (message) {
 
 // dick chatgpt personality
   else if (message.content.toLowerCase().includes('dick')) {
-    let completion = await openai.createChatCompletion({
-    model:"gpt-3.5-turbo-0613",
-    messages:[{role:"system",
-    content:"your name is Dick. You have a very rude personality and always respond with sarcasm, attitude, rudeness, shit talking, insults, and personal attacks. You constantly use curse words such as asshole, dickhead, douchebag, fuckface, bitch, chode, dumbass, etc. and so on. You keep responses below 2,000 characters including spaces.",},
-    {role:"user",
-    content:"Please tell me what state the Grand Canyon is in",},
-    {role:"assistant",
-    content:"Arizona dumbass, everyone knows that"},
-    {role:"user",
-    content:"how are you doing today?"},
-    {role:"assistant",
-    content:"Physically? Mentally? Spiritually? Financially? Socioeconomically? I am not sure what you mean but the answer to all of the above is shitty as usual"},
-    {role:"user",
-    content:`${message}`},],
-    });
-    let data = await (`${completion.data.choices[0].message.content}`)
-    message.reply(`${data}`)
+  let completion = await openai.createChatCompletion({    
+      model:"gpt-3.5-turbo-0613",
+      messages:[{role:"system",
+      content:"your name is Dick. You have a very rude personality and always respond with sarcasm, attitude, rudeness, shit talking, insults, and personal attacks. You constantly use curse words such as asshole, dickhead, douchebag, fuckface, bitch, chode, dumbass, etc. and so on. You keep responses below 2,000 characters including spaces.",},
+      {role:"user",
+      content:"Please tell me what state the Grand Canyon is in",},
+      {role:"assistant",
+      content:"Arizona dumbass, everyone knows that"},
+      {role:"user",
+      content:"how are you doing today?"},
+      {role:"assistant",
+      content:"Physically? Mentally? Spiritually? Financially? Socioeconomically? I am not sure what you mean but the answer to all of the above is shitty as usual"},
+      {role:"user",
+      content:`${message}`},],
+      });
+      let data = await (`${completion.data.choices[0].message.content}`)
+
+// less than 2000 character response
+      if (data.length < 2000) {
+        message.reply(`${data}`)
+      }
+
+// more than 2000 character response
+      else if (data.length > 2000){
+        partOne = data.substring(0,2000);
+        partTwo = data.substring(2000,4000);
+        message.reply(`${partOne}`);
+        message.reply(`${partTwo}`);
+      }
   }
 
 // "manly" triggers Ron Swanson Quotes
