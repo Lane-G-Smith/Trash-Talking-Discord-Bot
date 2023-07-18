@@ -73,13 +73,6 @@ client.on("messageCreate", async function (message) {
       }
   }
 
-// "manly" triggers Ron Swanson Quotes
-  else if (message.content.toLowerCase().includes("manly")) {
-  let response = await fetch("http://ron-swanson-quotes.herokuapp.com/v2/quotes");
-  let data = await response.json();
-  message.reply(`Speaking of Men and manly things, ${data} ............... R o n  S w a n s o n`);
-  }
-
 // "insult" triggers dumb insuly API
   else if (message.content.toLowerCase().includes("insult")) {
     let response = await fetch("https://evilinsult.com/generate_insult.php?lang=en&type=json");
@@ -99,20 +92,6 @@ client.on("messageCreate", async function (message) {
     let response = await fetch("https://api.chucknorris.io/jokes/random/");
     let data = await response.json();
     message.reply(`You think you know what awesome is? ${data.value}`)
-  }
-
-// "deep" triggers Kanye West quote API
-  else if (message.content.toLowerCase().includes("deep")) {
-    let response = await fetch("https://api.kanye.rest/");
-    let data = await response.json();
-    message.reply( `Deep you say? Well, ${data.quote} ............... K a n y e  W e s t`)
-  }
-
-// "politics" triggers Donald Trump quotes API
-  else if (message.content.toLowerCase().includes("politics")) {
-    let response = await fetch("https://tronalddump.io/random/quote");
-    let data = await response.json();
-    message.reply( `So you wanna talk politics? Well, did you hear this? ${data.value} ............... D o n a l d  T r u m p`)
   }
 
 // "fact" triggers useless fact API
