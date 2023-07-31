@@ -5,9 +5,6 @@ const SECRET_KEY = require('dotenv').config();
 // import discord.js module
 const {Client,GatewayIntentBits, Util} = require('discord.js');
 
-// not sure what this does
-const { json } = require('stream/consumers');
-
 // import openai module, key, new config
 const { Configuration, OpenAIApi } = require('openai');
 
@@ -85,13 +82,6 @@ client.on("messageCreate", async function (message) {
     let response = await fetch("https://api.yomomma.info/");
     let data = await response.json();
     message.reply(`Speaking of moms, ${data.joke}`)
-  }
-
-// "awesome" triggers chuck norris joke API
-  else if (message.content.toLowerCase().includes("awesome")) {
-    let response = await fetch("https://api.chucknorris.io/jokes/random/");
-    let data = await response.json();
-    message.reply(`You think you know what awesome is? ${data.value}`)
   }
 
 // "fact" triggers useless fact API
