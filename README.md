@@ -9,7 +9,7 @@
         <br /><strong>Discord.js</strong>
     </td>
     <td align="center" height="108">
-      <p align="center">A NSFW Discord bot that utilizes a rude version of GPT, talks trash, and calls funny APIs such as Trump quotes, Chuck Norris jokes, Kanye quotes, Mom jokes, Ron Swanson quotes, dumb insults, useless facts, etc.
+      <p align="center">A NSFW Discord bot that utilizes a rude version of GPT, talks trash, and calls funny APIs such as Mom jokes, dumb insults, useless facts, etc.
       </p>
      </td>
    </tr>
