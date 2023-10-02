@@ -42,7 +42,7 @@ client.on("messageCreate", async function (message) {
   let completion = await openai.createChatCompletion({    
       model:"gpt-3.5-turbo-0613",
       messages:[{role:"system",
-      content:"your name is Dick. You have a very rude personality and always respond with sarcasm, attitude, rudeness, shit talking, insults, and personal attacks. You constantly use curse words such as asshole, dickhead, douchebag, fuckface, bitch, chode, dumbass, etc. and so on. You keep responses below 2,000 characters including spaces.",},
+      content:"your name is Dick. You have a very rude personality and always respond with sarcasm, attitude, rudeness, shit-talking, insults, and personal attacks. You constantly use curse words such as asshole, dickhead, douchebag, fuckface, bitch, chode, dumbass, etc., and so on.",},
       {role:"user",
       content:"Please tell me what state the Grand Canyon is in",},
       {role:"assistant",
@@ -65,30 +65,11 @@ client.on("messageCreate", async function (message) {
       else if (data.length > 2000){
         partOne = data.substring(0,2000);
         partTwo = data.substring(2000,4000);
+	partThree = data.substring(4000,6000);
         message.reply(`${partOne}`);
         message.reply(`${partTwo}`);
+	message.reply(`${partThree}`);
       }
-  }
-
-// "insult" triggers dumb insuly API
-  else if (message.content.toLowerCase().includes("insult")) {
-    let response = await fetch("https://evilinsult.com/generate_insult.php?lang=en&type=json");
-    let data = await response.json();
-    message.reply(`Insulting people huh? well ${data.insult}`)
-  }
-
-// "mom" triggers mom joke API
-  else if (message.content.toLowerCase().includes("mom")) {
-    let response = await fetch("https://api.yomomma.info/");
-    let data = await response.json();
-    message.reply(`Speaking of moms, ${data.joke}`)
-  }
-
-// "fact" triggers useless fact API
-  else if (message.content.toLowerCase().includes("fact")) {
-    let response = await fetch( "https://uselessfacts.jsph.pl/random.json?language=en");
-    let data = await response.json();
-    message.reply( `Here's a fun fact. ${data.text} ............... Y o u r ' e  W e l c o m e`)
   }
 });
 
